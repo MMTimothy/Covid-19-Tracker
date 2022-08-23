@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block scripts %}
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">NavBar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'covidStatistics' %}">COVID19 Statistics</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div id="div-header">
+    <div id="div-header-text">Burundi COVID-19 Tracker</div>
+</div>
+<style>
+#div-header
+{
+
+    background-image:url("{%static 'img/burundi.jpeg' %}");
+    background-color: #FF000000;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    position:relative;
+    height:300px;
+}
+#div-header-text
+{
+    background-color:white;
+    color:black;
+    font-size:5vw;
+    font-weight:bold;
+    margin:0 auto;
+    padding:10px;
+    width:50%;
+    height:75%;
+    text-align:center;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    mix-blend-mode:screen;
+}
+</style>
+<div class="d-flex justify-content-center">
+    <div class="p-2 bg-dark form-group w-50" align="center">
+        <form id="formNews">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" class="form-control font-weight-bold text-uppercase" placeholder="Title" name="title">
+            </div>
+            <div class="form-group">
+                <input type="file" class="form-control" placeholder="News Thumbnail" name="newsThumbnail">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" placeholder="News Bordy" name="body"></textarea>
+            </div>
+        </form>
+        <div class="w-100 bg-dark">
+            <button class="btn btn-lg btn-outline-success mx-auto" id="btnPostNews" rows="14">Post News</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block scripts %}
+    <script type="text/javascript" src="{% static 'class_js/covid_statistics.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <h1 class="text-center"> Covid Cases Form</h1>
+        <form class="form" id="formCases">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col">
+                    <select class="form-control" name="province" id="selectedProvinces">
+                        <option value="Cankuzo">Cankuzo</option>
+                        <option value="Gitega">Gitega</option>
+                        <option value="Rutana">Rutana</option>
+                        <option value="Ruyigi">Ruyigi</option>
+                        <option value="Karuzi">Karuzi</option>
+                        <option value="Kayanza">Kayanza</option>
+                        <option value="Kirundo">Kirundo</option>
+                        <option value="Muyinga">Muyinga</option>
+                        <option value="Ngozi">Ngozi</option>
+                        <option value="Buriri">Buriri</option>
+                        <option value="Makamba">Makamba</option>
+                        <option value="Rumonge">Rumonge</option>
+                        <option value="Bubanza">Bubanza</option>
+                        <option value="Bujumbura Mairie">Bujumbura Mairie</option>
+                        <option value="Bujumbura Rural">Bujumbura Rural</option>
+                        <option value="Cibitoke">Cibitoke</option>
+                        <option value="Muramvya">Muramvya</option>
+                        <option value="Mwaro">Mwaro</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <input type="number" placeholder="Reported Cases Today" class="form-control" name="cases">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <input type="number" placeholder="Number of Recoveries" class="form-control" name="recoveries" >
+                </div>
+                <div class="col">
+                    <input type="number" placeholder="Number of Fatalities" class="form-control" name="fatalities">
+                </div>
+            </div>
+            <br>
+            <div class="row w-50 mx-auto">
+                <div class="col mx-auto">
+                    <input type="date" class="form-control" placeholder="Date" name="date">
+                </div>
+            </div>
+
+        </form>
+
+        <br>
+        <div class="w-75">
+            <button class="btn btn-lg btn-outline-success float-left" id="btnSubmit">Submit</button>
+            <button class="btn btn-lg btn-outline-primary mx-auto" id="btnProvinces">Get Provinces</button>
+            <button class="btn btn-lg btn-outline-danger float-right" id="btnReset">Reset</button>
+        </div>
+    </div>
+
+{% endblock %}

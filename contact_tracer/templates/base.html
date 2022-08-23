@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Burundi COVID-19 Management</title>
+    <script type="text/javascript" src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    {% block scripts %}
+    {% endblock %}
+
+</head>
+<body>
+    {% block body %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,22 @@
+$(document).ready(function()
+{
+    $("#btnPostNews").click(function()
+    {
+        jQuery.ajax({
+            type:"POST",
+            url:"/post_news",
+            enctype:"multipart/form-data",
+            data:new FormData($("#formNews")[0]),
+            contentType:false,
+            processData:false,
+            success:function(data)
+            {
+                window.location.reload();
+            },
+            error:function(e)
+            {
+                console.log(e);
+            }
+        });
+    });
+});

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block scripts %}
+    <link rel="stylesheet" href="{% static 'class_css/login.css' %}">
+    <script type="text/javascript" src="{% static 'class_js/login.js' %}"></script>
+{% endblock %}
+{% block body %}
+<div class="container-fluid d-flex justify-content-center mb-3">
+
+
+    <div class="p-2 w-50" id="divLogin">
+        <h3 class="w-100 text-center text-light">Login</h3>
+        <form class="w-75 mx-auto" id="formLogin">
+            {% csrf_token %}
+            <div class="fom-group">
+                <input type="text" class="form-control" placeholder="Username" name="username">
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" name="password">
+            </div>
+        </form>
+        <div class="mx-auto w-75">
+            <button class="btn btn-md btn-outline-success float-left" id="btnLogin">Login</button>
+            <button class="btn btn-md btn-outline-danger float-right" id="btnCancel">Cancel</button>
+        </div>
+    </div>
+
+    <video id="videoBg" poster="{% static 'img/bujaHub.jpg' %}" autoplay muted loop>
+        <source src="{%static 'video/BujaHub.mp4' %}">
+    </video>
+</div>
+{% endblock %}
